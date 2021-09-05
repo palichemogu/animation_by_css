@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>CSS-трансформации и переходы</title>
+ <style>
+ #box {
+ position: absolute;
+ top: 100px;
+ left: 100px;
+ width: 200px;
+ height: 200px;
+ background-color: rgb(0, 204, 255);
+ transition: transform 2s /*СSS трансформации и переходы*/
+ }
+ #box:hover {
+ transform: rotate(45deg);
+}
+ </style>
+</head>
+<body>
+ <div id="box"></div>
+ <script>
+    window.onload = init;
+    function init() {
+    var submitButton = document.getElementById("submitButton");
+    submitButton.onclick = validBid;
+    }
+    function validBid() {
+    if (document.getElementById("bid").value > 0) {
+    document.getElementById("theForm").submit();
+    } else {
+    return false;
+    }
+    }
+   </script>
+   <form id="theForm" method="POST" action="contest.php">
+    <input type="number" id="bid" value="0"><br>
+    <input type="button" id="submitButton" value="Предлагаемая цена!"><br>
+   </form>
+</body>
+</html>
